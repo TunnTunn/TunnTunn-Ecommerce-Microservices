@@ -8,6 +8,9 @@ import lombok.Data;
 @Data
 public class ProductRequest {
 
+    @NotBlank(message = "SKU code must not be blank")
+    private String skuCode;
+
     @NotBlank(message = "Product name must not be blank")
     private String name;
 

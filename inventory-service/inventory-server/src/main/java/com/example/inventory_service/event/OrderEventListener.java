@@ -23,7 +23,7 @@ public class OrderEventListener {
 
         order.getItems().forEach(item -> {
             try {
-                String skuCode = item.getProductName(); // Giả định productName là skuCode
+                String skuCode = item.getSkuCode();
                 Integer quantityToReduce = item.getQuantity();
 
                 var currentInventory = inventoryService.getInventoryBySku(skuCode);
