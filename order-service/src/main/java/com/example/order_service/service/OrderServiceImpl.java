@@ -23,6 +23,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final ProductClient productClient;
     private final OrderMapper orderMapper;
+    private final OrderMessageSender orderMessageSender;
 
     @Override
     public OrderResponse createOrder(OrderRequest request) {
@@ -35,8 +36,13 @@ public class OrderServiceImpl implements OrderService {
         // Calculate total & save order
         Order savedOrder = saveOrder(request, orderItems);
 
-        // Return OrderResponse
-        return orderMapper.toOrderResponse(savedOrder);
+        // Convert to response DTO
+        OrderResponse orderResponse = orderMapper.toOrderResponse(savedOrder);
+
+        // Send order created message
+        orderMessageSender.sendOrderCreatedMessage(orderResponse);
+
+        return orderResponse;
     }
 
     // Fetch products from Product Service
