@@ -2,10 +2,12 @@ package com.example.inventory_service.dto;
 
 import lombok.Data;
 
-import java.math.BigDecimal;
+import java.math.BigDecimal; // Thêm import
 
 @Data
 public class OrderItemResponse {
-    private String productName; // Sẽ được dùng như skuCode
+    private Long id; // ⭐️ Thêm trường này
+    private String productName;
     private Integer quantity;
+    private BigDecimal price; // ⭐️ Thêm trường này
 }
