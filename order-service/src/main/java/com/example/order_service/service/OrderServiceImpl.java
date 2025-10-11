@@ -2,6 +2,7 @@ package com.example.order_service.service;
 
 import com.example.order_service.client.ProductClient;
 import com.example.order_service.dto.*;
+import com.example.order_service.event.OrderEventPublisher;
 import com.example.order_service.mapper.OrderMapper;
 import com.example.order_service.model.*;
 import com.example.order_service.repository.OrderRepository;
@@ -23,7 +24,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final ProductClient productClient;
     private final OrderMapper orderMapper;
-    private final OrderMessageSender orderMessageSender;
+    private final OrderEventPublisher orderEventPublisher;
 
     @Override
     public OrderResponse createOrder(OrderRequest request) {
@@ -40,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
         OrderResponse orderResponse = orderMapper.toOrderResponse(savedOrder);
 
         // Send order created message
-        orderMessageSender.sendOrderCreatedMessage(orderResponse);
+        orderEventPublisher.publishOrderCreatedEvent(orderResponse);
 
         return orderResponse;
     }
