@@ -1,6 +1,6 @@
 package com.example.order_service.service;
 
-import com.example.order_service.client.ProductClient;
+import com.example.product_client.client.ProductClient;
 import com.example.order_service.event.OrderEventPublisher;
 import com.example.order_service.mapper.OrderMapper;
 import com.example.order_events.dto.OrderStatus;

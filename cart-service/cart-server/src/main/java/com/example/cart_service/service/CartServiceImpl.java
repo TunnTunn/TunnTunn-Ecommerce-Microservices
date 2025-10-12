@@ -3,7 +3,7 @@ package com.example.cart_service.service;
 import com.example.cart_client.dto.AddItemRequest;
 import com.example.cart_client.dto.CartItemResponse;
 import com.example.cart_client.dto.CartResponse;
-import com.example.cart_service.client.ProductClient;
+import com.example.product_client.client.ProductClient;
 import com.example.cart_service.model.Cart;
 import com.example.cart_service.model.CartItem;
 import com.example.product_client.dto.ProductResponse;
