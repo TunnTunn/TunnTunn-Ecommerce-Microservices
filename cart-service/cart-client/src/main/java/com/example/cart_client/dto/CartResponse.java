@@ -9,7 +9,6 @@ import java.util.List;
 @Data
 @Builder
 public class CartResponse {
-    private Long id;
     private String userId;
     private List<CartItemResponse> items;
     private BigDecimal totalPrice;
