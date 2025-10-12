@@ -82,6 +82,8 @@ public class OrderServiceImpl implements OrderService {
                         throw new IllegalArgumentException("Not enough stock for: " + product.getName());
 
                     return OrderItem.builder()
+                            .productId(product.getId())
+                            .skuCode(product.getSkuCode())
                             .productName(product.getName())
                             .quantity(item.getQuantity())
                             .price(BigDecimal.valueOf(product.getPrice()))
