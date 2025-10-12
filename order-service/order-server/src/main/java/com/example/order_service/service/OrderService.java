@@ -1,7 +1,7 @@
 package com.example.order_service.service;
 
 import com.example.order_client.dto.OrderRequest;
-import com.example.order_client.dto.OrderResponse;
+import com.example.order_events.dto.OrderResponse;
 
 import java.util.List;
 

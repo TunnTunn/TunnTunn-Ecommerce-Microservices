@@ -1,7 +1,7 @@
 package com.example.order_service.event;
 
-import com.example.order_service.config.RabbitMQConfig;
-import com.example.order_client.dto.OrderResponse;
+import com.example.order_events.OrderEventConstants;
+import com.example.order_events.dto.OrderResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -18,8 +18,8 @@ public class OrderEventPublisher {
         log.info("Publishing Order Created Event for Order ID: {}", orderResponse.getId());
         // Send the orderResponse object directly
         rabbitTemplate.convertAndSend(
-                RabbitMQConfig.EXCHANGE_NAME,
-                RabbitMQConfig.ROUTING_KEY,
+                OrderEventConstants.ORDER_EXCHANGE,
+                OrderEventConstants.ORDER_CREATED_ROUTING_KEY,
                 orderResponse);
     }
 }

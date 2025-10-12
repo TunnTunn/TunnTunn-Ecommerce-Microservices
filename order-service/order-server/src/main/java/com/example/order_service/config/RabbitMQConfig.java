@@ -1,5 +1,6 @@
 package com.example.order_service.config;
 
+import com.example.order_events.OrderEventConstants;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -11,23 +12,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    public static final String EXCHANGE_NAME = "order_exchange";
-    public static final String QUEUE_NAME = "inventory_queue";
-    public static final String ROUTING_KEY = "order.created";
-
     @Bean
     Queue queue() {
-        return new Queue(QUEUE_NAME, false);
+        return new Queue(OrderEventConstants.ORDER_CREATED_QUEUE, false);
     }
 
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange(EXCHANGE_NAME);
+        return new TopicExchange(OrderEventConstants.ORDER_EXCHANGE);
     }
 
     @Bean
     Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY);
+        return BindingBuilder.bind(queue).to(exchange).with(OrderEventConstants.ORDER_CREATED_ROUTING_KEY);
     }
 
     @Bean

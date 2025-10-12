@@ -1,7 +1,7 @@
 package com.example.order_service.mapper;
 
-import com.example.order_client.dto.OrderItemResponse;
-import com.example.order_client.dto.OrderResponse;
+import com.example.order_events.dto.OrderItemResponse;
+import com.example.order_events.dto.OrderResponse;
 import com.example.order_service.model.Order;
 import com.example.order_service.model.OrderItem;
 import org.mapstruct.Mapper;
