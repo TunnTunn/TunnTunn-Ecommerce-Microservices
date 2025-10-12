@@ -22,6 +22,13 @@
             <version>${project.version}</version>
         </dependency>
 
+        <!-- Order Events Library -->
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>order-events</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Product Client Library -->
         <dependency>
             <groupId>com.example</groupId>

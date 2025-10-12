@@ -1,6 +1,6 @@
 package com.example.order_service.model;
 
-import com.example.order_client.dto.OrderStatus;
+import com.example.order_events.dto.OrderStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

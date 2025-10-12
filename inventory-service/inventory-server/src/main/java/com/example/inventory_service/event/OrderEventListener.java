@@ -1,7 +1,8 @@
 package com.example.inventory_service.event;
 
 import com.example.inventory_client.dto.InventoryRequest;
-import com.example.order_client.dto.OrderResponse;
+import com.example.order_events.dto.OrderResponse;
+import com.example.order_events.OrderEventConstants;
 import com.example.inventory_service.service.InventoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +17,8 @@ public class OrderEventListener {
 
     private final InventoryService inventoryService;
 
-    // Listen to messages from the inventory_queue
-    @RabbitListener(queues = "inventory_queue")
+    // Listen to messages from the order created queue
+    @RabbitListener(queues = OrderEventConstants.ORDER_CREATED_QUEUE)
     public void handleOrderCreatedEvent(OrderResponse order) {
         log.info("Received Order Created Event for Order ID: {}", order.getId());
 
