@@ -20,6 +20,9 @@
         <module>discovery-server</module>
         <module>api-gateway</module>
         <module>config-server</module>
+        <module>cart-service</module>
+        <module>cart-service/cart-client</module>
+        <module>cart-service/cart-server</module>
     </modules>
 
     <properties>
